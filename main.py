@@ -31,3 +31,8 @@ def images(name):
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+@app.route("/delete_all")
+def delete_all():
+    for f in os.listdir(IMG_DIR):
+        os.remove(os.path.join(IMG_DIR, f))
+    return "Deleted all images"
